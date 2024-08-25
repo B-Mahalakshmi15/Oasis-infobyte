@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meesho - E-commerce Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #FAFAFA;
+        }
+
+        /* Header Section */
+        .navbar {
+            background: linear-gradient(90deg, #FFDEE9, #B5FFFC);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 600;
+        }
+
+        .navbar button {
+            padding: 0.5rem 1.5rem;
+            background-color: #FF4081;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar button:hover {
+            background-color: #FF6D00;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .hero button {
+            padding: 1rem 2rem;
+            background-color: #FF6D00;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #FF4081;
+            transform: scale(1.05);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .categories h2 {
+            color: #FF4081;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .category {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .category h3 {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* Popular Deals Section */
+        .deals {
+            padding: 2rem;
+            background-color: #fff;
+        }
+
+        .deals h2 {
+            color: #FF4081;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .deals .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .product .price {
+            margin: 1rem 0;
+            color: #FF6D00;
+            font-weight: 600;
+        }
+
+        .product button {
+            padding: 0.5rem 1.5rem;
+            background-color: #FF4081;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .product button:hover {
+            background-color: #FF6D00;
+            transform: scale(1.05);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #FDEBEB;
+            padding: 2rem;
+        }
+
+        .testimonials h2 {
+            color: #333;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        /* Download App Section */
+        .download-app {
+            background: url('app-download.jpg') no-repeat center center/cover;
+            padding: 4rem;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .download-app::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .download-app-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-app h2 {
+            font-size: 2.5rem;
+        }
+
+        .download-app p {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .app-buttons img {
+            width: 150px;
+            margin: 1rem;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="navbar">
+        <a href="#">Meesho</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Categories</a>
+            <a href="#">Offers</a>
+            <a href="#">Contact Us</a>
+        </nav>
+        <button>Login / Sign Up</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Best Deals for Your Home & Wardrobe!</h1>
+            <p>Exclusive discounts, trendy styles, and affordable prices.</p>
+            <button>Start Shopping Now!</button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Shop by Categories</h2>
+        <div class="category-grid">
+            <div class="category">
+                <img src="https://th.bing.com/th/id/OIP.O0YH4ZRgWcSGJ9hs1DvmGAHaJD?pid=ImgDet&w=207&h=252&c=7" alt="Women's Fashion">
+                <h3>Women's Fashion</h3>
+            </div>
+            <div class="category">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.4jjrI8d-87_l198ON1D2EQHaHc&pid=Api&P=0&h=180" alt="Woman's earings">
+                <h3>Woman's Earings </h3> 
+            </div>
+            <div class="category">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.tYeiGCyynJMRQeaZdmXUaAHaE8&pid=Api&rs=1&c=1&qlt=95&w=140&h=93" alt="Accessories">
+                <h3>Accessories</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Deals Section -->
+    <section class="deals">
+        <h2>Top Picks for You</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.qervQhFDZGWPMGtW8phx9wHaE8&pid=Api&P=0&h=180" alt="style shoes">
+                <h3>Style shoes</h3>
+                <div class="price">$49.99</div>
+                <button>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.wppqeKuuxvEdk9w1Rs9fpQHaG6&pid=Api&rs=1&c=1&qlt=95&w=126&h=117" alt="bags">
+                <h3>Bags</h3>
+                <div class="price">$39.99</div>
+                <button>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.-j2Z8uM3koQgoo7xfV3eGwAAAA&pid=Api&rs=1&c=1&qlt=95&w=113&h=113" alt="Product 3">
+                <h3>Notebook</h3>
+                <div class="price">$29.99</div>
+                <button>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.FxjUnxtw7eYX4rcAQ4HsnQHaGQ&pid=Api&rs=1&c=1&qlt=95&w=122&h=103" alt="Product 4">
+                <h3>pen</h3>
+                <div class="price">$19.99</div>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
